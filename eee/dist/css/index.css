@@ -1,2 +1,30 @@
-#ww {
-  background: red; }
+.head_bao, .header_newyear, .lunbotu, .show, .footer_content {
+  width: 1200px;
+  margin: 0 auto;
+  font: 12px 'Microsoft Yahei',Tahoma,Simsun; }
+
+.headerTop {
+  overflow: hidden;
+  height: 28px;
+  border-bottom: 1px solid #ddd;
+  background: #f5f5f5;
+  position: relative;
+  z-index: 1002; }
+
+.head_bao {
+  line-height: 28px; }
+
+.head_letf {
+  float: left; }
+  .head_letf div {
+    float: left; }
+
+.head_letf_sy {
+  background: url(../img/epetbrand.png) no-repeat;
+  background-position: 0 8px;
+  display: inline-block;
+  height: 28px;
+  text-indent: 16px;
+  margin-right: 5px; }
+  .head_letf_sy a {
+    color: #444; }
