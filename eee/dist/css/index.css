@@ -1,8 +1,15 @@
-.head_bao, .header_newyear, .lunbotu, .show, .footer_content {
+@charset "UTF-8";
+.head_bao,
+.nav,
+.lunbotu,
+.show,
+.footer_content,
+.nav_nav {
   width: 1200px;
   margin: 0 auto;
-  font: 12px 'Microsoft Yahei',Tahoma,Simsun; }
+  font: 12px 'Microsoft Yahei', Tahoma, Simsun; }
 
+/*头部*/
 .headerTop {
   overflow: hidden;
   height: 28px;
@@ -28,3 +35,286 @@
   margin-right: 5px; }
   .head_letf_sy a {
     color: #444; }
+
+.head_letf_diqu {
+  padding: 0 20px 0 5px;
+  height: 28px;
+  line-height: 28px;
+  position: relative; }
+  .head_letf_diqu b {
+    background: url(../img/xqico.png) 0 -31px no-repeat;
+    display: block;
+    top: 8px;
+    right: 5px;
+    width: 15px;
+    height: 15px;
+    position: absolute; }
+
+.head_letf_tu {
+  margin-left: 5px; }
+  .head_letf_tu a {
+    display: inline-block;
+    height: 28px;
+    text-indent: 19px;
+    background-position: -9px -425px;
+    background-image: url("../img/bg.png");
+    background-repeat: no-repeat; }
+
+.head_letf_pinglun {
+  padding: 0 5px; }
+
+/*头部右边*/
+.head_right {
+  float: right; }
+  .head_right li {
+    float: left;
+    line-height: 25px;
+    color: #444;
+    display: inline;
+    padding: 0 5px;
+    height: 26px;
+    position: relative;
+    z-index: 120;
+    border: 1px solid #F5F5F5;
+    border-bottom: 0; }
+  .head_right .head_right_wd {
+    position: relative;
+    padding-right: 14px;
+    cursor: pointer;
+    display: block; }
+  .head_right i {
+    width: 13px;
+    height: 13px;
+    background-position: -312px -46px;
+    background-repeat: no-repeat;
+    margin-top: 6px;
+    margin-right: 5px;
+    float: left;
+    background-image: url("../img/bg.png"); }
+  .head_right b {
+    display: block;
+    width: 0;
+    height: 0;
+    border: transparent solid 4px;
+    border-top: #717171 solid 4px;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    overflow: hidden; }
+
+.head_right_gouwu i {
+  background-position: -291px -46px; }
+
+.head_right_choucang span {
+  margin-right: 10px; }
+
+.head_right_choucang i {
+  background-position: -353px -46px;
+  margin-right: 4px; }
+
+.head_right_shouji i {
+  background-position: -334px -46px; }
+
+.nav {
+  overflow: hidden; }
+  .nav .nav_logo {
+    float: left; }
+  .nav .lo {
+    display: inline-block;
+    width: 268px;
+    height: 94px;
+    background: url(../img/epet-logo.png) no-repeat 0 -12px;
+    margin-top: 7px; }
+
+.fom {
+  margin: 23px 0 0 33px;
+  float: left; }
+  .fom .nav_sousuo {
+    border: #459d36 solid 2px;
+    background: 0 0;
+    padding: 0 5px 0 15px;
+    width: 382px;
+    height: 30px;
+    outline: 0;
+    line-height: 30px;
+    font-size: 14px;
+    float: left; }
+  .fom button {
+    border: 0;
+    width: 73px;
+    height: 34px;
+    vertical-align: top;
+    cursor: pointer;
+    background-color: #459d36;
+    color: #FFF;
+    font-size: 14px; }
+
+.search-form {
+  overflow: hidden; }
+
+.keywords {
+  margin: 10px 0;
+  width: 498px;
+  height: 17px;
+  overflow: hidden; }
+  .keywords a,
+  .keywords span {
+    float: left;
+    display: inline;
+    white-space: nowrap;
+    margin: 0 10px;
+    color: #999; }
+  .keywords label {
+    float: left;
+    display: inline;
+    white-space: nowrap; }
+  .keywords a {
+    margin: 0 0; }
+
+.nav_gouwu {
+  margin: 23px 0 0;
+  width: 130px;
+  height: 39px;
+  float: right;
+  text-align: center;
+  text-indent: 2em;
+  background: url(../img/shopping-cart.gif) no-repeat; }
+  .nav_gouwu a {
+    line-height: 39px;
+    outline: 0;
+    color: #666;
+    text-align: center;
+    text-indent: 2em; }
+
+.nav_nav_biaoti {
+  float: left;
+  height: 34px;
+  line-height: 32px;
+  color: #000;
+  font-size: 16px;
+  text-align: center;
+  width: 228px; }
+  .nav_nav_biaoti span {
+    float: left;
+    width: 112px;
+    height: 32px;
+    text-align: center;
+    border: 1px solid #e1e1e1;
+    color: #666;
+    cursor: pointer; }
+  .nav_nav_biaoti b {
+    width: 16px;
+    height: 13px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -2px;
+    background: url(../img/bg2.png);
+    margin-left: 5px; }
+  .nav_nav_biaoti .cate1 {
+    background-position: -17px -1257px; }
+  .nav_nav_biaoti .cate2 {
+    width: 13px;
+    height: 7px;
+    margin-top: -2px;
+    background: url(../img/bg2.png);
+    margin-left: 5px;
+    background-position: -17px -1276px; }
+
+.menus {
+  overflow: hidden;
+  height: 34px; }
+  .menus li {
+    float: left;
+    display: inline;
+    z-index: 102;
+    position: relative;
+    line-height: 34px;
+    font-size: 16px;
+    color: #000;
+    font-weight: 700;
+    padding: 0 20px;
+    height: 34px; }
+    .menus li:first-child {
+      padding: 0 0 0 25px; }
+    .menus li b {
+      display: inline-block;
+      width: 13px;
+      height: 17px;
+      background: url(../img/bg2.png) -35px -1280px;
+      vertical-align: middle;
+      margin-top: -2px;
+      margin-right: 6px; }
+
+/*轮播图*/
+.lunbotu {
+  height: 360px;
+  overflow: hidden;
+  position: relative; }
+
+.lunbotu_show {
+  position: absolute;
+  left: 230px; }
+
+.lunbotu_right {
+  position: absolute;
+  right: 0; }
+  .lunbotu_right img {
+    border-bottom: 1px dotted #ddd; }
+
+/*主要商品*/
+.show {
+  overflow: hidden;
+  position: relative; }
+
+.show_qianggou {
+  position: relative; }
+
+.timeapp {
+  top: 412px;
+  left: 24px;
+  position: absolute;
+  width: 280px;
+  line-height: 32px;
+  height: 32px;
+  overflow: hidden;
+  border-radius: 32px;
+  background: #ff7188; }
+
+#ul_box {
+  display: none; }
+
+.show_shangp {
+  position: absolute;
+  left: 327px;
+  top: 0; }
+
+.anlimenu {
+  overflow: hidden;
+  width: 812px;
+  height: 66px;
+  border-bottom: 1px dashed #e7e7e7;
+  margin: 0 20px; }
+  .anlimenu .a1 {
+    width: 20px;
+    height: 30px;
+    background: url(../img/index-ico.png) no-repeat;
+    background-position: -76px -16px;
+    position: absolute;
+    top: 22px;
+    left: 20px;
+    z-index: 100; }
+  .anlimenu .menubox {
+    height: 66px;
+    margin: 0 10px;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-left: 25px; }
+    .anlimenu .menubox li {
+      width: 119px;
+      height: 45px;
+      color: #000;
+      padding: 18px 0 3px;
+      cursor: pointer;
+      float: left; }
