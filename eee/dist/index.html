@@ -6,6 +6,7 @@
 		<title>e宠商城</title>
 		<link rel="stylesheet" type="text/css" href="css/csss.css" />
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	
 	</head>
 
 	<body>
@@ -22,7 +23,25 @@
 					</div>
 					<div class="head_letf_diqu">
 						<div class="head_letf_diqu_z">
-							重庆
+							<span>重庆</span>
+							
+							<div class="head_div" >
+								
+								<span style="background: #fff">1</span><span>2</span>
+								<ul class="head_letf_diqu_z_ul headul" >
+								
+								<li><span>华北0:</span><a>北京</a><a>北京1</a><a>北京2</a><a>北京3</a><a>北京4</a><a>北京5</a></li>
+								<li><span>华北1:</span><a>北京</a><a>北京1</a><a>北京2</a><a>北京3</a><a>北京4</a><a>北京5</a></li>
+								<li><span>华北2:</span><a>北京</a><a>北京1</a><a>北京2</a><a>北京3</a><a>北京4</a><a>北京5</a></li>
+							</ul>
+							<ul class="head_letf_diqu_z_ula headul" style="display: none;">
+								
+								<li><span>华北10:</span><a>北京</a><a>北京1</a><a>北京2</a><a>北京3</a><a>北京4</a><a>北京5</a></li>
+								<li><span>华北11:</span><a>北京</a><a>北京1</a><a>北京2</a><a>北京3</a><a>北京4</a><a>北京5</a></li>
+								<li><span>华北12:</span><a>北京</a><a>北京1</a><a>北京2</a><a>北京3</a><a>北京4</a><a>北京5</a></li>
+							</ul>
+							</div>
+							
 						</div>
 						<b></b>
 					</div>
@@ -36,13 +55,19 @@
 					</div>
 				</div>
 				<ul class="head_right">
-					<li><a href="https://passport.epet.com/login.html" rel="nofollow">[登录]</a></li>
-					<li><a href="https://passport.epet.com/register.html" rel="nofollow">[注册]</a></li>
-					<li class="head_right_gouwu"><i></i><a href="http://www.epet.com/cart.html">购物车(<em id="cart_num" data-name="cart_num">0</em>)</a></li>
-					<li class="head_right_wd"><i></i><p class="topgz fl"><span><a href="https://my.epet.com/" rel="nofollow">我的E宠</a></span><b></b></p></li>
+					<li><a class="aho" href="https://passport.epet.com/login.html" rel="nofollow">[登录]</a></li>
+					<li><a class="aho" href="https://passport.epet.com/register.html" rel="nofollow">[注册]</a></li>
+					<li class="head_right_gouwu aho"><i></i><a href="http://www.epet.com/cart.html">购物车(<em id="cart_num" data-name="cart_num">0</em>)</a></li>
+					<li class="head_right_wd"><i></i><p class="topgz fl"><span><a href="https://my.epet.com/" rel="nofollow">我的E宠</a> <div class="myec_tc boxsha" >
+<a href="https://my.epet.com/orders.html" rel="nofollow">我的订单</a>
+<a href="https://my.epet.com/returned/main.html" rel="nofollow">退换货记录</a>
+<a href="https://my.epet.com/mypaper.html" rel="nofollow">我的优惠券</a>
+<a href="https://my.epet.com/mybalance.html" rel="nofollow">我的余额</a>
+<a href="https://my.epet.com/vip/main.html" rel="nofollow">VIP俱乐部</a>
+</div></span><b></b></p></li>
 					<li class="head_right_choucang"><i></i><span >收藏</span><b></b></li>
 					<li class="head_right_shouji"><i></i><a href="http://www.epet.com/app.html">手机版</a></li>
-					<li><a class="cred" href="javascript:;" onclick="pub_suggest(1);">问题反馈</a></li>
+					<li><a class="cred aho" href="javascript:;" onclick="pub_suggest(1);">问题反馈</a></li>
 				</ul>
 			</div>
 		</div>
@@ -56,11 +81,12 @@
 				<a title="E宠商城" href="http://www.epet.com/" class="lo"></a>
 			</div>
 			<form action="https://list.epet.com/search/main.html" method="get" class="fom">
-				<ul >
-					<li></li>
-				</ul>
+				
 				<div class="search-form">
-					<input name="keyword" type="text" autocomplete="off" class="nav_sousuo" lang="先牧仕 " value="先牧仕 ">
+					<input name="keyword" id="txt" type="text" autocomplete="off" class="nav_sousuo" lang="先牧仕 " value="先牧仕">
+					<ul id="list" >
+
+				</ul>
 					<button value="true" type="submit">搜索</button>
 				</div>
 				<div class="keywords">
@@ -71,11 +97,32 @@
 				<a class="c666" href="http://www.epet.com/cart.html">购物车(<em data-name="cart_num">0</em>)</a>
 			
 			</div>
-			
+			<div class="clear"></div>
 		</div>
 		<div class="nav_nav">
+			<!--<ul id="gougou">
+							<li><img  class="png" src="//static.epetbar.com/static_web/pc/src/images/background/dogpack.jpg"/><img src="img/gougou.png"/><a href="http://www.epet.com/" class="p-hui">正在狗狗站溜达...</a></li>
+							<li><img style="z-index: 99999999;display: block;" src="img/猫猫.png"/><a href="http://cat.epet.com/"  class="p-link">切换到猫猫站</a><div id="dada">
+								<img class="png"src="//static.epetbar.com/static_web/pc/src/images/background/dogpack.jpg"/>
+							</div></li>
+							<li><a href="http://fish.epet.com/"  class="p-lan">切换到水族站</a><img src="img/yuyu.png" alt="" /><img class="png" src="//static.epetbar.com/static_web/pc/src/images/background/dogpack.jpg"/></li>
+							
+						</ul>-->
+			<ul id="fenleilist">
+				<li class="">
+<h3>
+<a href="https://list.epet.com/4356.html" lang="4356">消暑<i>442</i>
+
+</a> 
+<a href="https://list.epet.com/4334.html" lang="4334">洗澡<i>2242</i></a> 
+</h3>
+	
+</li>
+			</ul>
 				<div class="nav_nav_biaoti">
-					<span>狗狗<b class="cate1"></b></span>
+					<span>狗狗<b class="cate1"></b>
+						
+					</span>
 					<span>商品分类<b class="cate2"></b></span>
 				</div>
 				<ul class="menus">
@@ -475,7 +522,10 @@
 </ul>
 </div>
 </div>
+<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
 
+<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/sousuo.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 
 </html>
