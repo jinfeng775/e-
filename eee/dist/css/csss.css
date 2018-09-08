@@ -7,3 +7,510 @@ h1,h2,h3,h4,h5,h6{font-weight:100;}
 body{ font-family:"微软雅黑";}
 input,a{outline:none;}
 i,em{font-style: normal;}   
+.ft12 {
+	font-size: 12px
+}
+
+.ft13 {
+	font-size: 13px
+}
+
+.ft14 {
+	font-size: 14px
+}
+
+.ft15 {
+	font-size: 15px
+}
+
+.ft16 {
+	font-size: 16px
+}
+
+.ft18 {
+	font-size: 18px
+}
+
+.ft20 {
+	font-size: 20px
+}
+
+.ft24 {
+	font-size: 24px
+}
+
+.ft26 {
+	font-size: 26px
+}
+
+.ft30 {
+	font-size: 30px
+}
+
+.zcolor {
+	color: #459d36
+}
+
+.c444 {
+	color: #444
+}
+
+.cfff {
+	color: #fff
+}
+
+.c333 {
+	color: #333
+}
+
+.c999 {
+	color: #999
+}
+
+.c666 {
+	color: #666
+}
+
+.cf60 {
+	color: #F60
+}
+
+.c000 {
+	color: #000
+}
+
+.c89 {
+	color: #898989
+}
+
+.cred {
+	color: red
+}
+
+.cylow {
+	color: #F30
+}
+
+.cblue {
+	color: #00f
+}
+
+.cgold {
+	color: #F60
+}
+
+.cgreen {
+	color: #0b9619
+}
+
+.cd7 {
+	color: #d7d7d7
+}
+
+.cstress {
+	color: #f03e3e
+}
+
+.ti1 {
+	text-indent: 1em
+}
+
+.ti2 {
+	text-indent: 2em
+}
+
+.ftc {
+	text-align: center
+}
+
+.textR {
+	text-align: right
+}
+
+.ftleft {
+	text-align: left
+}
+
+.bold {
+	font-weight: 700
+}
+
+.nobold {
+	font-weight: 400
+}
+
+.bgmcolor,
+.zbg {
+	background: #459d36
+}
+
+.bgfff,
+.bgwh {
+	background: #fff
+}
+
+.bgf5 {
+	background: #f5f5f5
+}
+
+.bgcd {
+	background: #cdcdcd
+}
+
+.bgd7 {
+	background: #d7d7d7
+}
+
+.bgaf {
+	background: #afafaf
+}
+
+.bgfb {
+	background: #fbfbfc
+}
+
+.bgorange {
+	background: #f97526
+}
+
+.bgstress {
+	background: #f03e3e
+}
+
+.opacity6,
+.bgtm {
+	background: #000;
+	filter: alpha(opacity=60);
+	-moz-opacity: .6;
+	opacity: .6
+}
+
+.border {
+	border: 1px solid #d7d7d7
+}
+
+.bord7t {
+	border-top: 1px solid #d7d7d7
+}
+
+.bord7b {
+	border-bottom: 1px solid #d7d7d7
+}
+
+.bord7l {
+	border-left: 1px solid #d7d7d7
+}
+
+.bord7r {
+	border-right: 1px solid #d7d7d7
+}
+
+.fl {
+	float: left
+}
+
+.fr {
+	float: right
+}
+
+.clear {
+	clear: both
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden
+}
+
+.clearfix {
+	*zoom: 1
+}
+
+.rela,
+.rel {
+	position: relative
+}
+
+.abs {
+	position: absolute
+}
+
+.fixd {
+	position: fixed
+}
+
+.position00 {
+	top: 0;
+	left: 0
+}
+
+.overflow {
+	overflow: hidden;
+	_zoom: 1
+}
+
+.overflow_s {
+	overflow: scroll
+}
+
+.overflow_a {
+	overflow: auto
+}
+
+.nowrap {
+	white-space: nowrap
+}
+
+.rowhidden {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden
+}
+
+.dib {
+	display: inline-block
+}
+
+.hide,
+.shide {
+	display: none
+}
+
+.db {
+	display: block
+}
+
+.di {
+	display: inline
+}
+
+.dtable {
+	display: table
+}
+
+.dtcell {
+	display: table-cell
+}
+
+.dib {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1
+}
+
+.bround5 {
+	border-radius: 5px
+}
+
+.bround30 {
+	border-radius: 30px
+}
+
+.bround50 {
+	border-radius: 50%
+}
+
+.vertical {
+	vertical-align: middle
+}
+
+.v-top {
+	vertical-align: top
+}
+
+.v-bottom {
+	vertical-align: bottom
+}
+
+.ct {
+	margin: 0 auto
+}
+
+.mt5 {
+	margin-top: 5px
+}
+
+.mb5 {
+	margin-bottom: 5px
+}
+
+.ml5 {
+	margin-left: 5px
+}
+
+.mr5 {
+	margin-right: 5px
+}
+
+.mt,
+.mtop10 {
+	margin-top: 10px
+}
+
+.mt30 {
+	margin-top: 30px
+}
+
+.mb {
+	margin-bottom: 10px
+}
+
+.ml {
+	margin-left: 10px
+}
+
+.mr {
+	margin-right: 10px
+}
+
+.mt15 {
+	margin-top: 15px
+}
+
+.mb15 {
+	margin-bottom: 15px
+}
+
+.ml15 {
+	margin-left: 15px
+}
+
+.mr15 {
+	margin-right: 15px
+}
+
+.mt20,
+.mtop20 {
+	margin-top: 20px
+}
+
+.mb20 {
+	margin-bottom: 20px
+}
+
+.ml20 {
+	margin-left: 20px
+}
+
+.mr20 {
+	margin-right: 20px
+}
+
+.pt5 {
+	padding-top: 5px
+}
+
+.pb5 {
+	padding-bottom: 5px
+}
+
+.pl5 {
+	padding-left: 5px
+}
+
+.pr5 {
+	padding-right: 5px
+}
+
+.pt10 {
+	padding-top: 10px
+}
+
+.pb10 {
+	padding-bottom: 10px
+}
+
+.pl10 {
+	padding-left: 10px
+}
+
+.pr10 {
+	padding-right: 10px
+}
+
+.pt15 {
+	padding-top: 15px
+}
+
+.pb15 {
+	padding-bottom: 15px
+}
+
+.pl15 {
+	padding-left: 15px
+}
+
+.pr15 {
+	padding-right: 15px
+}
+
+.pt20 {
+	padding-top: 20px
+}
+
+.pb20 {
+	padding-bottom: 20px
+}
+
+.pl20 {
+	padding-left: 20px
+}
+
+.pr20 {
+	padding-right: 20px
+}
+
+.pad5 {
+	padding: 5px
+}
+
+.pad10 {
+	padding: 10px
+}
+
+.pad20 {
+	padding: 20px
+}
+
+.pad30 {
+	padding: 30px
+}
+
+.lh1 {
+	line-height: 1
+}
+
+.lh12 {
+	line-height: 12px
+}
+
+.lh14 {
+	line-height: 14px
+}
+
+.lh16 {
+	line-height: 16px
+}
+
+.lh18 {
+	line-height: 18px
+}
+
+.lh20 {
+	line-height: 20px
+}
+
+.lh22 {
+	line-height: 22px
+}
+
+.lh24 {
+	line-height: 24px
+}
+
+.lh32 {
+	line-height: 32px
+}
