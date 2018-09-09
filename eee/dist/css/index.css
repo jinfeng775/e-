@@ -285,7 +285,6 @@
     text-indent: 2em; }
 
 .nav_nav {
-  z-index: 99999999999;
   position: relative; }
 
 .nav_nav_biaoti {
@@ -375,6 +374,9 @@
     -ms-transition: all .5s ease; }
 
 #fenleilist {
+  display: none;
+  z-index: 99999;
+  width: 226px;
   height: 360px;
   background: #fcfcfc;
   position: absolute;
@@ -385,7 +387,7 @@
     width: 100%;
     float: left;
     position: relative; }
-    #fenleilist li:hover .ulaaa {
+    #fenleilist li:hover #ulaaa {
       display: none; }
     #fenleilist li h3 {
       background-image: url(../img/bg2.png);
@@ -459,6 +461,7 @@
 
 /*轮播图*/
 .lunbotu {
+  position: relative;
   height: 360px;
   overflow: hidden;
   position: relative; }
@@ -472,6 +475,35 @@
   right: 0; }
   .lunbotu_right img {
     border-bottom: 1px dotted #ddd; }
+
+.playpic {
+  top: 325px;
+  left: 10px;
+  text-align: center;
+  width: 100%;
+  z-index: 100;
+  position: absolute;
+  bottom: 0;
+  left: 0; }
+  .playpic a {
+    width: 21px;
+    height: 21px;
+    margin-right: 5px;
+    text-align: center;
+    display: inline-block;
+    line-height: 21px;
+    background-color: #999;
+    border-radius: 50%;
+    color: #FFF; }
+
+.meixuanzhong {
+  background-color: #999;
+  color: #FFF; }
+
+.playpic .xuanzhong {
+  background-color: #FFF;
+  box-shadow: 0 0 8px #ccc;
+  color: #000; }
 
 /*主要商品*/
 .show {
@@ -493,7 +525,10 @@
   background: #ff7188; }
 
 #ul_box {
-  display: none; }
+  margin-left: 5px;
+  position: absolute;
+  top: 0px;
+  display: block; }
 
 .show_shangp {
   border: 1px solid #d7d7d7;
@@ -542,6 +577,78 @@
       padding: 18px 0 3px;
       cursor: pointer;
       float: left; }
+
+.anli {
+  margin-left: 15px; }
+
+.rela, .rel {
+  position: relative; }
+
+.time-proconli {
+  height: 364px; }
+
+.overflow {
+  overflow: hidden; }
+
+.timeproleft {
+  background: url(../img/cut1.png) center no-repeat;
+  width: 29px;
+  height: 64px;
+  background-position: -12px -76px;
+  position: absolute;
+  top: 122px;
+  left: -16px;
+  z-index: 100;
+  display: none; }
+
+.time-procon {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.mt15 {
+  margin-top: 15px; }
+
+.time-procon li {
+  width: 211px; }
+
+.fl {
+  float: left; }
+
+.cut1 {
+  font-weight: 500;
+  color: #fff;
+  font-size: 14px;
+  float: left;
+  margin-top: 5px;
+  margin-left: 12px;
+  box-sizing: border-box;
+  padding-top: 29px;
+  text-align: center;
+  height: 55px;
+  width: 55px;
+  background: #fff;
+  background-size: 100%; }
+
+.img-yiqiangguang {
+  background: #fff;
+  background-size: 100%;
+  height: 120px;
+  width: 120px;
+  margin: -60px;
+  position: absolute;
+  top: 150px;
+  left: 50%; }
+
+.time-procon li .surprise-m {
+  margin: 18px 20px 20px; }
+
+.novip {
+  height: 29px; }
+
+.ftc {
+  text-align: center; }
 
 .anlimenu_xia {
   position: relative; }
