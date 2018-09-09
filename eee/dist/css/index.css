@@ -557,16 +557,19 @@
   .anlimenu .a1 {
     background: url(../img/index-ico.png) no-repeat;
     background-position: -76px -16px;
-    left: 20px; }
+    left: 20px;
+    z-index: 99999999999; }
   .anlimenu .a2 {
     background: url(../img/index-ico.png) no-repeat;
     background-position: -57px -16px;
-    right: 20px; }
+    right: 20px;
+    z-index: 99999999999; }
   .anlimenu .menubox {
     height: 66px;
     margin: 0 10px;
     overflow: hidden;
     position: relative;
+    z-index: 999;
     top: 0;
     left: 0;
     margin-left: 25px; }
@@ -653,10 +656,20 @@
 .anlimenu_xia {
   position: relative; }
 
+.anlimenu_xia_nei {
+  overflow: hidden; }
+  .anlimenu_xia_nei ul li {
+    position: relative;
+    float: left;
+    margin: 0 10px; }
+
 .bo1 {
-  width: 211px;
-  float: left;
-  position: relative; }
+  width: 1800px;
+  position: relative;
+  transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -ms-transition: all .5s ease; }
 
 .bo1a {
   font-weight: 500;
@@ -729,6 +742,9 @@
   top: 122px;
   right: -2px;
   z-index: 100; }
+
+.xuan {
+  display: block; }
 
 .gouzhuliag {
   margin-top: 30px;
@@ -820,6 +836,13 @@
 
 .show_right_show {
   border-right: 1px solid #e7e7e7; }
+  .show_right_show img {
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease; }
+    .show_right_show img:hover {
+      margin-left: -10px; }
 
 .show_right_show_1a {
   float: left;
@@ -842,19 +865,26 @@
   .srs1b div {
     position: absolute; }
 
+.bigimg3 {
+  height: 170px;
+  width: 289px;
+  background: #f9f9f9;
+  border: 0.5px solid #e7e7e7; }
+
 .clearfixa {
   position: relative;
   float: left;
   height: 170px;
   overflow: hidden; }
   .clearfixa .ad-font {
-    position: absolute; }
+    position: absolute;
+    z-index: 999; }
   .clearfixa div {
-    width: 289px;
     box-sizing: border-box;
     float: left; }
   .clearfixa img {
-    border: 0.5px solid #e7e7e7; }
+    position: absolute;
+    width: 289px; }
 
 .lianjie li {
   width: 148px;

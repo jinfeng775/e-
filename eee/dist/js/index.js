@@ -63,10 +63,8 @@ $(function() {
 
 			var promise2 = promise1.then(function(data) {
 		var ulaaa = $("#fenleilist h3");
-		console.log(ulaaa)
 
 	for(var i=0;i<ulaaa.length;i++){
-		console.log(i)
 		$(ulaaa[i]).after(`		<ul id="ulaaa" style="display: none;">
 		<li><a href="javascript:;"><span style="float: left;">${i}</span><img alt="4357" src="http://imgs-qn.iliangcang.com/ware/goods/big/2/249/249846.jpg"></a>动物系列
 			豹纹 卫衣裙</li>
@@ -110,7 +108,6 @@ $(function() {
 				var xunxilen = $("#ul_box>li").length;
 				var lubo_bg = $(".lunbotu_bao")
 			shijian();
-			console.log(tuli)
 				var con =0;
 				function shijian(){
 			    timer=setInterval(function(){
@@ -210,26 +207,31 @@ $(function() {
 							$(".menubox").html(b)
 //							console.log(a)
 							var c = a.slice(a.indexOf("time-proconli rela overflow")-12,a.indexOf("<script>"))
-							
-							
+							//给时间加事件
+							$(".menubox>li:not(:last)").mouseover(function(){
+								$(this).css("color","red").siblings().css("color","#000")
+								$(".bo1").css("display","none").eq($(this).index()).css("display","block")
+							})
 							
 							
 							}
 							});
-				
-			var monis = '<ul class="bo1">';
+				for(var w=0;w<8;w++){
+					
+				var ruiji = getRandomArray()
+			var monis = '<ul class="bo1 ee'+w+'" style="left: 0px;display: none;">';
 				var monie = "</ul>";
 				var moban = "";
 				var Qian = (Math.random()*100) 
-				var img = [["康多乐DogChow 牛肉","img/ecd04bd59b05173c86786e15bfefce1d.jpg@!200w-c"],["活力幼犬配方幼犬粮","img/f3d1ddb2432631be309acfccde6179c1.jpg@!200w-c"],["犬用不锈钢针梳","img/a2dbfa971303c92bda24e055cd59ff59.jpg@!200w-c"],["犬用植物性润湿乳液","img/03ef5cc90b47b654452bd69f690e9078.jpg@!200w-c"],["蓬松增毛液","img/544db55a5bb37a8e911114ff9ba04987.jpg@!200w-c"],["犬用职业用洗白精","img/fa053b7aacf85050385248d0a5ee74df.jpg@!200w-c"],["营养美毛粉454g","img/33bfd60b3fc33f4ab3bfa46f41195b4e.jpg@!200w-c"],["宠物用升降立式饮水器","img/c1791fb421c4b496688874525e2ac5f3.jpg@!200w-c"]]
+				var img = [["康多乐DogChow 牛肉","img/f3d1ddb2432631be309acfccde6179c1.jpg@!200w-c.jpg"],["活力幼犬配方幼犬粮","img/ecd04bd59b05173c86786e15bfefce1d.jpg@!200w-c.jpg"],["犬用不锈钢针梳","img/a2dbfa971303c92bda24e055cd59ff59.jpg@!200w-c.jpg"],["犬用植物性润湿乳液","img/544db55a5bb37a8e911114ff9ba04987.jpg@!200w-c.jpg"],["蓬松增毛液","img/03ef5cc90b47b654452bd69f690e9078.jpg@!200w-c.jpg"],["犬用职业用洗白精","img/35b5b8863517e2dc2d1f7e272d7c97c5.jpg@!200w-c.jpg"],["营养美毛粉454g","img/33bfd60b3fc33f4ab3bfa46f41195b4e.jpg@!200w-c.jpg"],["宠物用升降立式饮水器","img/c1791fb421c4b496688874525e2ac5f3.jpg@!200w-c.jpg"]]
 				for(var i=0;i<8;i++){
 					moban += `<li><div class="bo1a"></div>
 					 				<div class="bo1b"></div>	
 					 				<div class="bo1c">
-					 					<img src="${img[i][1]}"/>
-					 					<div class="bo1c_bi">${img[i][0]}</div>
+					 					<img src="${img[ruiji[i]][1]}"/>
+					 					<div class="bo1c_bi">${img[ruiji[i]][0]}</div>
 					 					<div class="bo1c_jia">
-					 						¥ <span class="qian">${Math.floor(Qian)+".00"}</span><span class="yuanjia">${(Math.floor(Qian)*10)+'.'+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)}</span>
+					 						¥ <span class="qian">${Math.floor(Qian)*10+".00"}</span><span class="yuanjia">${(Math.floor(Qian)*100+10)+'.'+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)}</span>
 					 					</div>
 					 					<div class="bo1_btn">
 					 						<a href="javascript:;" class="qiangguang">已抢光</a>
@@ -241,14 +243,83 @@ $(function() {
 				}
 				
 				
-				console.log(monis+moban+monie)
-				
-				$(".anlimenu_xia_nei").html(monis+moban+monie)
 				
 				
+				$(".anlimenu_xia_nei")[0].innerHTML+=monis+moban+monie
+				}
+				$(".anlimenu_xia_nei").children().eq(0).css("display","block");
+				//活动按钮左右
+				var dong = 2;
 				
+				$(".anlimenu>a").click(function(){
+					
+					if($(this).index()){
+						
+						
+						if(dong>0){
+							dong--;
+							$(".menubox").stop().animate({ left:  $(".menubox")[0].offsetLeft-118.99-45}, 800 );
+						}
+						
+					}else{
+						
+						if(dong<2){
+							
+							dong++;
+							$(".menubox").stop().animate({ left: $(".menubox")[0].offsetLeft+118.99-45}, 800 );
+						}
+							
+					}
+					
 				
+				})
 				
+				//内容按钮左右
+				var uldong = 0;
+			$(".anlimenu_xia>a").click(function(){
+		
+				if($(this).index()==3){
+					if(uldong>-4){
+						uldong--
+						$(".bo1").css("left",220*uldong)
+						
+					}
 				
+				}
+				if($(this).index()==2){
+					if(uldong<0){
+						++uldong
+					$(".bo1").css("left",220*uldong)
+					}
+				}
+
+			})
 				
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		function getRandomArray()
+{
+    var array = [];
+    while (array.length < 8)
+    {
+        var random = Math.floor(Math.random() * 8) ;
+        if (array.indexOf(random) < 0)
+        {
+            array.push(random);
+        }
+    }
+    return array;
+}	
+			
+			
+			
 			})
