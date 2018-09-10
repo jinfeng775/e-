@@ -1,13 +1,15 @@
 $(function(){
-
+var tijiao = 0;
 
 	//手机验证
 $("#shouji").change(function(){
 	
 	if($(this).val().match(/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/)!=null){
+		  $(".shoujidd").find(".Registererror").remove();
 		chengGong($(this))
-		
+		tijiao++;
 	}else{
+		
 		shiBai($(this),"请输入11位手机号")
 	}	
 });
@@ -24,8 +26,11 @@ $("#shouji").change(function(){
 			shiBai($(this),"用户不能为空")
 		}
 		if($(this).val() == yanzma){
+			tijiao++;
+			  $(".yanzdd").find(".Registererror").remove();
 			chengGong($(this))
 		}else{
+			
 			$(this).next(".Registererror").remove();
 			shiBai($(this),"请输入正确验证码")
 		}
@@ -50,7 +55,12 @@ $("#shouji").change(function(){
 	//用户
 	$("#user").change(function(){
 		if($(this).val()==""){
+		
 			shiBai($(this),"用户不能为空")
+		}else{
+			tijiao++;
+			 $(".userdd").find(".Registererror").remove();
+				chengGong($(this))
 		}
 	})
 	
@@ -59,7 +69,7 @@ $("#shouji").change(function(){
 	$("#mima").click(function(){
 		$(".Pwdqiangdu").css("display","block")
 	})
-		
+	var	ke = 0  //判断按键里面的密码是否正确
   var aStr = ["弱", "中", "强"];
             function checkStrong(val) {
                 var modes = 0;
@@ -71,8 +81,13 @@ $("#shouji").change(function(){
                 return modes;
             };
             $("#mima").keyup(function() {
+            	
+            	if($(this).val().length>=6){
+            	ke = 1
+            		 chengGong($(this))
+            $(".mimad").find(".Registererror").remove();
                 var val = $(this).val();
-                //$("#ePassword").text(val.length);
+                
                 var num = checkStrong(val);
                 switch (num) {
                     case 0:
@@ -89,20 +104,93 @@ $("#shouji").change(function(){
                     default:
                         break;
                 }
+               
+                	}else{
+                		
+           
+		 $(".mimad").find(".Registererror").remove();
+				shiBai($(this),"密码不够6位")
+                	}
             });
+
+	var kee =0;
+	
+		$("#quepass").keyup(function(){
+			
+			if($("#mima").val()==$(this).val()){
+				kee = 1
+				  $(".quepassdd").find(".Registererror").remove();
+				chengGong($(this))
+			}else{
+				
+				$("#dxyzm").removeAttr("style")
+		$(".quepassdd").find(".Registererror").remove();
+				shiBai($(this),"密码不一致")
+			}
+				
+		})
+	
+	
+	
+	
+	
+	
 
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	$("#tijiaobtn").click(function(){
+		
+		if($(this).prop("checked")){
+			if(tijiao+ke+kee == 5){
+				$(".Otherregister").css("background","rgb(51,203,152)")
+				
+				$(".Otherregister").click(function(){
+					
+					$.post("http://h6.duchengjiu.top/shop/api_user.php",{status:"register",username:$("#shouji").val(),password:$("#mima").val()},function(data){
+						if(data.code==2001){
+							alert("该用户已被注册")
+						}
+						if(data.code==0){
+							alert("注册成功")
+							location.href = "https://passport.epet.com/register.html"
+						}
+					})
+					
+					
+					
+				})
+			}
+		}
+	})
+		
+	
+	
+	
+	
+	
+	
+	
 	function chengGong(obj){
-		$("#phonemsg_div").css("display","none")
+//		$("#phonemsg_div").css("display","block")
 		
 		obj.after('<img class="cgimg" src="https://static.epetbar.com/passport/new/images/ok_03.jpg">');
 	obj.css({"border": "#ddd solid 1px","color": "#999"})
 	}
 	
 	function shiBai(obj,txt){
-		$(".cgimg").css("display","none")
+//		$(".cgimg").css("display","none")
 		obj.css({"border": "#ff6f4a solid 1px","color": "#ff6f4a"})
 		
 		obj.after(`<div class="Registererror" id="phonemsg_div" style="width: 150px; display: block;">

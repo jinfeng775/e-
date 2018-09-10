@@ -143,3 +143,6 @@
   #phonemsg_div span {
     text-align: center;
     width: 150px; }
+
+.Registererror {
+  z-index: 99; }
