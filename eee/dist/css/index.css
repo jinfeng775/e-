@@ -448,9 +448,22 @@
     font-weight: 700;
     padding: 0 20px;
     height: 34px; }
+    .menus li a:hover b {
+      transform: rotate(720deg);
+      -ms-transform: rotate(720deg);
+      /* IE 9 */
+      -moz-transform: rotate(720deg);
+      /* Firefox */
+      -webkit-transform: rotate(720deg);
+      /* Safari 和 Chrome */
+      -o-transform: rotate(720deg); }
     .menus li:first-child {
       padding: 0 0 0 25px; }
     .menus li b {
+      transition: all .8s ease;
+      -webkit-transition: all .8s ease;
+      -moz-transition: all .8s ease;
+      -ms-transition: all .8s ease;
       display: inline-block;
       width: 13px;
       height: 17px;
@@ -686,7 +699,7 @@
   background: url(../img/cut1.png) center no-repeat;
   background-size: 100%; }
 
-.bo1b {
+.bo1ba {
   background: url(../img/daysur_over.png) center no-repeat;
   background-size: 100%;
   height: 120px;
@@ -704,6 +717,7 @@
   color: #dd2727; }
 
 .yuanjia {
+  text-decoration: line-through;
   font-size: 12px;
   color: #999;
   margin-left: 5px; }
@@ -721,6 +735,11 @@
   line-height: 30px;
   border-radius: 30px;
   cursor: pointer; }
+
+.jijiang-buy {
+  background: #4ace83; }
+  .jijiang-buy:hover {
+    background: #e9b427; }
 
 .show_l {
   background: url(../img/index-ico.png) no-repeat;
