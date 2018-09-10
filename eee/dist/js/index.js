@@ -214,6 +214,7 @@ $(function() {
 							})
 							
 							$(".menubox>li:not(:last)").each(function(index,item){
+								
 								if($(item).children().children()[1].innerHTML=="已结束"){
 									var index = $(this).index();
 									$(".anlimenu_xia_nei>ul").eq(index).find(".bo1b").addClass("bo1ba")
@@ -221,6 +222,11 @@ $(function() {
 								}else{
 									var index = $(this).index();
 									$(".anlimenu_xia_nei>ul").eq(index).find(".qiangguang").addClass("jijiang-buy").text("马上开抢")
+								}
+								if($(item).children().children()[1].innerHTML=="进行中"){
+									var index = $(this).index();
+									$(".anlimenu_xia_nei>ul").eq(index).find(".bo1b").addClass("bo1ba")
+									$(".anlimenu_xia_nei>ul").eq(index).find(".qiangguang").removeClass("jijiang-buy").text("已抢光")
 								}
 								
 							})
