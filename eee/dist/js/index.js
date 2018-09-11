@@ -251,7 +251,7 @@ $(function() {
 						for(var k=0;k<6;k++){
 							var rj = Math.floor(Math.random() * 6)
 							
-							moban+=`<a href="#"><li><div class="bo1a"></div>
+							moban+=`<a data-id="${deta1[rj].data}" href="xiangqing.html?${deta1[rj].data}"><li><div class="bo1a"></div>
 					 				<div class="bo1b"></div>	
 					 				<div class="bo1c">
 					 					<img id="imggg" src="${deta1[rj].img}"/>

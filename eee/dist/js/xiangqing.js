@@ -81,5 +81,16 @@ $(function(){
 	</ul>`)
 
 	}
+})
+		var shangp =$(".fzou_n");
+	$(".oborder>li").mouseenter(function(){
+//		shangp.children("img").removeAttr("src")
+//		.attr("src",$(this).find("img").attr("src"))
+	magnifier(".fzou_n",320,320,$(this).find("img").attr("src"),200,200,400)
 	})
+		
+		
+		
+			
+			
 })
