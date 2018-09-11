@@ -1,0 +1,16 @@
+.nav_nav_biaoti span:first-child:hover {
+  background: red; }
+  .nav_nav_biaoti span:first-child:hover #gougou {
+    display: block; }
+
+.nav_nav_biaoti span:last-child:hover {
+  background: red; }
+  .nav_nav_biaoti span:last-child:hover #fenleilist {
+    display: block; }
+
+#gougou {
+  display: none; }
+
+#fenleilist {
+  display: none;
+  left: 0; }

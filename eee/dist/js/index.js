@@ -62,6 +62,8 @@ $(function() {
 			
 
 			var promise2 = promise1.then(function(data) {
+				
+				
 		var ulaaa = $("#fenleilist h3");
 
 	for(var i=0;i<ulaaa.length;i++){
@@ -239,38 +241,47 @@ $(function() {
 							
 							}
 							});
-				for(var w=0;w<8;w++){
-					
-				var ruiji = getRandomArray()
-			var monis = '<ul class="bo1 ee'+w+'" style="left: 0px;display: none;">';
-				var monie = "</ul>";
-				var moban = "";
-				var Qian = (Math.random()*100) 
-				var img = [["康多乐DogChow 牛肉","img/f3d1ddb2432631be309acfccde6179c1.jpg@!200w-c.jpg"],["活力幼犬配方幼犬粮","img/ecd04bd59b05173c86786e15bfefce1d.jpg@!200w-c.jpg"],["犬用不锈钢针梳","img/a2dbfa971303c92bda24e055cd59ff59.jpg@!200w-c.jpg"],["犬用植物性润湿乳液","img/544db55a5bb37a8e911114ff9ba04987.jpg@!200w-c.jpg"],["蓬松增毛液","img/03ef5cc90b47b654452bd69f690e9078.jpg@!200w-c.jpg"],["犬用职业用洗白精","img/35b5b8863517e2dc2d1f7e272d7c97c5.jpg@!200w-c.jpg"],["营养美毛粉454g","img/33bfd60b3fc33f4ab3bfa46f41195b4e.jpg@!200w-c.jpg"],["宠物用升降立式饮水器","img/c1791fb421c4b496688874525e2ac5f3.jpg@!200w-c.jpg"]]
-				for(var i=0;i<8;i++){
-					moban += `<li><div class="bo1a"></div>
+				$.getJSON("js/shangpin.json",function(deta1){
+					for(var i=0;i<8;i++){
+						var monis = '<ul class="bo1 ee'+i+'" style="left: 0px;display: none;">';
+							var monie = "</ul>";
+							var moban ="";
+							var ruiji = getRandomArray()
+							
+						for(var k=0;k<6;k++){
+							var rj = Math.floor(Math.random() * 6)
+							
+							moban+=`<a href="#"><li><div class="bo1a"></div>
 					 				<div class="bo1b"></div>	
 					 				<div class="bo1c">
-					 					<img src="${img[ruiji[i]][1]}"/>
-					 					<div class="bo1c_bi">${img[ruiji[i]][0]}</div>
+					 					<img id="imggg" src="${deta1[rj].img}"/>
+					 					<div class="bo1c_bi">${deta1[rj].name}</div>
 					 					<div class="bo1c_jia">
-					 						¥ <span class="qian">${Math.floor(Qian)*10+".00"}</span><span class="yuanjia">${(Math.floor(Qian)*100+10)+'.'+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)}</span>
+					 						¥ <span class="qian">${deta1[rj].xianjia}</span><span class="yuanjia">${deta1[rj].yuanjia}</span>
 					 					</div>
 					 					<div class="bo1_btn">
 					 						<a href="javascript:;" class="qiangguang">已抢光</a>
 					 					</div>
 					 				</div>
 	
-					 			</li>`
-				Qian = (Math.random()*10) 
-				}
+					 			</li></a>`;
+							
+						
+						
+						}
+						
+						$(".anlimenu_xia_nei")[0].innerHTML+=monis+moban+monie
+					}
+					
+					
+					
+					
+					
+					
+					$(".anlimenu_xia_nei").children().eq(0).css("display","block");
+				})
+			
 				
-				
-				
-				
-				$(".anlimenu_xia_nei")[0].innerHTML+=monis+moban+monie
-				}
-				$(".anlimenu_xia_nei").children().eq(0).css("display","block");
 				//活动按钮左右
 				var dong = 2;
 				
@@ -300,16 +311,17 @@ $(function() {
 				//内容按钮左右
 				var uldong = 0;
 			$(".anlimenu_xia>a").click(function(){
-		
-				if($(this).index()==3){
-					if(uldong>-4){
+			console.log($(this).index())
+				if($(this).index()==2){
+					
+					if(uldong>-3){
 						uldong--
 						$(".bo1").css("left",220*uldong)
 						
 					}
 				
 				}
-				if($(this).index()==2){
+				if($(this).index()==1){
 					if(uldong<0){
 						++uldong
 					$(".bo1").css("left",220*uldong)
@@ -319,7 +331,38 @@ $(function() {
 			})
 				
 			
-			
+//				for(var w=0;w<8;w++){
+//					
+//				var ruiji = getRandomArray()
+//			var monis = '<ul class="bo1 ee'+w+'" style="left: 0px;display: none;">';
+//				var monie = "</ul>";
+//				var moban = "";
+//				var Qian = (Math.random()*100) 
+//				var img = [["康多乐DogChow 牛肉","img/f3d1ddb2432631be309acfccde6179c1.jpg@!200w-c.jpg"],["活力幼犬配方幼犬粮","img/ecd04bd59b05173c86786e15bfefce1d.jpg@!200w-c.jpg"],["犬用不锈钢针梳","img/a2dbfa971303c92bda24e055cd59ff59.jpg@!200w-c.jpg"],["犬用植物性润湿乳液","img/544db55a5bb37a8e911114ff9ba04987.jpg@!200w-c.jpg"],["蓬松增毛液","img/03ef5cc90b47b654452bd69f690e9078.jpg@!200w-c.jpg"],["犬用职业用洗白精","img/35b5b8863517e2dc2d1f7e272d7c97c5.jpg@!200w-c.jpg"],["营养美毛粉454g","img/33bfd60b3fc33f4ab3bfa46f41195b4e.jpg@!200w-c.jpg"],["宠物用升降立式饮水器","img/c1791fb421c4b496688874525e2ac5f3.jpg@!200w-c.jpg"]]
+//				for(var i=0;i<8;i++){
+//					moban += `<li><div class="bo1a"></div>
+//					 				<div class="bo1b"></div>	
+//					 				<div class="bo1c">
+//					 					<img src="${img[ruiji[i]][1]}"/>
+//					 					<div class="bo1c_bi">${img[ruiji[i]][0]}</div>
+//					 					<div class="bo1c_jia">
+//					 						¥ <span class="qian">${Math.floor(Qian)*10+".00"}</span><span class="yuanjia">${(Math.floor(Qian)*100+10)+'.'+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)}</span>
+//					 					</div>
+//					 					<div class="bo1_btn">
+//					 						<a href="javascript:;" class="qiangguang">已抢光</a>
+//					 					</div>
+//					 				</div>
+//	
+//					 			</li>`
+//				Qian = (Math.random()*10) 
+//				}
+//				
+//				
+//				
+//				
+//				$(".anlimenu_xia_nei")[0].innerHTML+=monis+moban+monie
+//				}
+//	
 			
 			
 			
