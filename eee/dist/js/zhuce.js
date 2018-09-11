@@ -143,16 +143,32 @@ $("#shouji").change(function(){
 	
 	
 	
+//	$("body").click(function(){
+//		jiancha()
+//	})
 	
 	
 	
 	
 	
 	
-	
-	$("#tijiaobtn").click(function(){
+	$("#tijiaobtn").click(function(event){
 		
-		if($(this).prop("checked")){
+		jiancha()
+		 event.stopPropagation();
+			
+	})
+		
+	
+	
+	
+	
+	
+	
+	function jiancha(){
+		
+		console.log($("#tijiaobtn").prop("checked"))
+		if($("#tijiaobtn").prop("checked")){
 			if(tijiao+ke+kee == 5){
 				$(".Otherregister").css("background","rgb(51,203,152)")
 				
@@ -164,7 +180,7 @@ $("#shouji").change(function(){
 						}
 						if(data.code==0){
 							alert("注册成功")
-							location.href = "https://passport.epet.com/register.html"
+							location.href = "denglu.html"
 						}
 					})
 					
@@ -172,10 +188,16 @@ $("#shouji").change(function(){
 					
 				})
 			}
-		}
-	})
 		
-	
+		
+		
+		
+		}else{
+			$(".Otherregister").unbind();
+				$(".Otherregister").css("background","#ededed")
+		}
+		
+	}
 	
 	
 	
