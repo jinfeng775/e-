@@ -8,8 +8,10 @@ $("#shouji").change(function(){
 		  $(".shoujidd").find(".Registererror").remove();
 		chengGong($(this))
 		tijiao++;
+		jiancha()
 	}else{
-		
+		qingchudiji()
+		tijiao--;
 		shiBai($(this),"请输入11位手机号")
 	}	
 });
@@ -29,8 +31,9 @@ $("#shouji").change(function(){
 			tijiao++;
 			  $(".yanzdd").find(".Registererror").remove();
 			chengGong($(this))
+			jiancha()
 		}else{
-			
+			qingchudiji()
 			$(this).next(".Registererror").remove();
 			shiBai($(this),"请输入正确验证码")
 		}
@@ -55,7 +58,8 @@ $("#shouji").change(function(){
 	//用户
 	$("#user").change(function(){
 		if($(this).val()==""){
-		
+			jiancha()
+			qingchudiji()
 			shiBai($(this),"用户不能为空")
 		}else{
 			tijiao++;
@@ -87,7 +91,7 @@ $("#shouji").change(function(){
             		 chengGong($(this))
             $(".mimad").find(".Registererror").remove();
                 var val = $(this).val();
-                
+                jiancha()
                 var num = checkStrong(val);
                 switch (num) {
                     case 0:
@@ -110,6 +114,7 @@ $("#shouji").change(function(){
            
 		 $(".mimad").find(".Registererror").remove();
 				shiBai($(this),"密码不够6位")
+				qingchudiji()
                 	}
             });
 
@@ -121,11 +126,13 @@ $("#shouji").change(function(){
 				kee = 1
 				  $(".quepassdd").find(".Registererror").remove();
 				chengGong($(this))
+				jiancha()
 			}else{
-				
+				kee = 0 
 				$("#dxyzm").removeAttr("style")
 		$(".quepassdd").find(".Registererror").remove();
 				shiBai($(this),"密码不一致")
+				qingchudiji()
 			}
 				
 		})
@@ -167,22 +174,59 @@ $("#shouji").change(function(){
 	
 	function jiancha(){
 		
-		console.log($("#tijiaobtn").prop("checked"))
+		console.log(tijiao+ke+kee,kee)
 		if($("#tijiaobtn").prop("checked")){
-			if(tijiao+ke+kee == 5){
+			if(tijiao+ke+kee == 5 || $("#tijiaobtn").prop("checked")){
 				$(".Otherregister").css("background","rgb(51,203,152)")
 				
 				$(".Otherregister").click(function(){
-					
-					$.post("http://h6.duchengjiu.top/shop/api_user.php",{status:"register",username:$("#shouji").val(),password:$("#mima").val()},function(data){
-						if(data.code==2001){
-							alert("该用户已被注册")
-						}
-						if(data.code==0){
+//					
+//					$.post("http://h6.duchengjiu.top/shop/api_user.php",{status:"register",username:$("#shouji").val(),password:$("#mima").val()},function(data){
+//						if(data.code==2001){
+//							alert("该用户已被注册")
+//						}
+//						if(data.code==0){
+//							alert("注册成功")
+//							location.href = "denglu.html"
+//						}
+//					})
+					$.ajax({
+						type:"post",
+						url:"php/showList.php",
+						success:function(deta){
+							var tag = true;
+						var	deta = JSON.parse(deta)
+							console.log(deta)
+							for(var i in deta){
+								if(deta[i].zhanghu==$("#shouji").val()){
+									tag = false;
+									alert("用户已存在！")
+									
+								}
+
+							}
+							if(tag){
+									$.ajax({
+						type:"post",
+						url:"php/addWq.php",
+						data:{
+							zhanghu:$("#shouji").val(),
+							mima:$("#mima").val(),
+							spid:" "
+						},
+						success:function(ee){
 							alert("注册成功")
-							location.href = "denglu.html"
+							}
+					})
+							}
+							
+							
 						}
 					})
+					
+				
+					
+				
 					
 					
 					
@@ -193,13 +237,20 @@ $("#shouji").change(function(){
 		
 		
 		}else{
-			$(".Otherregister").unbind();
-				$(".Otherregister").css("background","#ededed")
+			qingchudiji()
 		}
 		
 	}
 	
 	
+	
+	
+	
+	
+	function qingchudiji(){
+		$(".Otherregister").unbind();
+				$(".Otherregister").css("background","#ededed")
+	}
 	
 	
 	
