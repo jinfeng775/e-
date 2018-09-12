@@ -1,75 +1,259 @@
-$(function(){
-		//头部地区
-		var id = location.search;
-				
-		id = id.split("?")[1]
-			console.log(id)
-			$(".head_letf_diqu").mouseover(function() {
-				$(".head_div").css("display", "block")
-			})
-			$(".head_letf_diqu").mouseout(function() {
-				$(".head_div").css("display", "none")
-			})
-			$(".head_div>span").click(function(e) {
-				if(e.target.innerHTML == 1) {
-					$(this).css("background", "#fff").next().css("background", "#f6f6f6")
-					$(".head_letf_diqu_z_ul").css({
-							"display": "block"
-						})
-						.next().css({
-							"display": "none"
-						})
+$(function() {
+
+	//头部地区
+	var id = location.search;
+
+	id = id.substring(9, 13)
+	//			console.log(id)
+	//用户功能
+
+	var userid = location.search;
+
+	userid = userid.split(":")[1]
+	console.log(userid)
+
+	//点击购物功能		
+	function gouwuhan() {
+		var inputvul = parseInt($("#cart_buynum").val())
+
+		$(".jjbtn").click(function() {
+			//			console.log($(this).index())
+			console.log(inputvul)
+			if($(this).index() == 0) {
+
+				if(inputvul > 1) {
+					--inputvul
+					$("#cart_buynum").val(inputvul);
 				}
-				if(e.target.innerHTML == 2) {
-					$(this).css("background", "#fff").prev().css("background", "#f6f6f6")
-					$(".head_letf_diqu_z_ula").css({
-							"display": "block"
-						})
-						.prev().css({
-							"display": "none"
-						})
+
+			}
+			if($(this).index() == 2) {
+				++inputvul
+				if(inputvul) {
+					$("#cart_buynum").val(inputvul);
+				}
+			}
+		})
+
+		$("#cart_buynum").keyup(function() {
+			console.log($("#cart_buynum").val())
+			inputvul = $("#cart_buynum").val();
+		})
+
+		$(".epet_sensor_add_cart").click(function() {
+
+			//			console.log($(this).attr("data-id"))	
+		var shuzu =[];
+			$.ajax({
+				type: "post",
+				url: "php/showList.php",
+				success: function(deta) {
+					var tag = true;
+					var deta = JSON.parse(deta)
+					//	console.log(deta)
+					
+					
+										
+					for(var i in deta) {
+						
+//						console.log("我是第一层循环我走了",1)
+						if(deta[i].zhanghu == userid) {
+							
+							var shuliang = 0;
+							
+							if(deta[i].spid) {
+								var detaa = JSON.parse(deta[i].spid)
+
+							
+								var changdu = detaa.length;
+								for(var zz = 0; zz < changdu; zz++) {									
+								var detaa = JSON.parse(deta[i].spid)									
+									for(var k in detaa[zz]) {											
+										if(k == $(".epet_sensor_add_cart").attr("data-id")) {
+//											console.log(detaa[m][k])
+											tag = false;
+											detaa[zz][k] += parseInt(inputvul)
+
+											detaa = JSON.stringify(detaa)
+
+											$.ajax({
+												type: "post",
+												url: "php/xiugai.php",
+												data: {
+													zhanghu: userid,
+													mima: "",
+													spid: detaa
+												},
+												success: function(deta) {
+													
+												}
+											})
+											break ;
+										}else{
+											iddd =""
+										iddd=$(".epet_sensor_add_cart").attr("data-id")
+											
+											
+											
+											
+									
+										
+										break ;
+										}
+									}
+										
+										
+										
+								}
+								if(tag){
+								obj ={}
+								obj[iddd] = inputvul
+									shuzu.push(obj)
+									var c = shuzu.concat(detaa)
+									
+									c = JSON.stringify(c)
+									//新数据重新添加
+									$.ajax({
+												type: "post",
+												url: "php/xiugai.php",
+												data: {
+													zhanghu: userid,
+													mima: "",
+													spid: c
+												},
+												success: function(deta) {
+													
+												}
+											})
+									
+									
+									
+								}
+									
+									
+									
+											
+							} 
+
+						}else{
+							alert("请先登录");
+						}
+
+					}
+					//							if(tag){
+					//									$.ajax({
+					//						type:"post",
+					//						url:"php/addWq.php",
+					//						data:{
+					//							zhanghu:$("#shouji").val(),
+					//							mima:$("#mima").val(),
+					//							spid:" "
+					//						},
+					//						success:function(ee){
+					//							alert("注册成功")
+					//							location.href = "denglu.html"
+					//							}
+					//					})
+					//							}
+					//							
+
 				}
 			})
 
-			$(".headul a").click(function() {
-				$(".head_letf_diqu_z>span").text(this.innerHTML)
-				$(".head_div").css("display", "none")
+			$('#mask-kk').css({
+				display: 'block',
+				height: $(document).height()
 			})
+			var $Popup = $('.popup-kk');
+			$Popup.css({
+				left: ($('body').width() - $Popup.width()) / 2 + 'px',
+				top: ($(window).height() - $Popup.height()) / 2 + $(window).scrollTop() + 'px',
+				display: 'block'
+			})
+			$("body").css({
+				overflow: "hidden"
+			});
+		})
+	}
 
-			var liebiaoId = [];
-			//搜索接口https://www.epet.com/share/suggest.html?inajax=1&kw=%E7%8B%97&pet_type=dog
-			//不管用  用的淘宝的
-			var promise1 = $.getJSON("http://h6.duchengjiu.top/shop/api_cat.php", function(date) {
-				var shuju = date.data;
-				//			console.log(shuju)
+	$('.close').click(function() {
+		$('#mask-kk,.popup-kk').css('display', 'none');
+		$("body").css({
+			overflow: ""
+		});
+	});
+	$('.btn1a').click(function() {
+		$('#mask-kk,.popup-kk').css('display', 'none');
+		$("body").css({
+			overflow: ""
+		});
+	});
 
-				var str = "";
-				var ul = ""
-				for(var i = 0; i < shuju.length; i += 2) {
-					liebiaoId.push(shuju[i].cat_id, shuju[i + 1].cat_id)
-					//					liebiaoId[i] = shuju[i].cat_id;
-					//					liebiaoId[i+1] = shuju[i+1].cat_id;
-					str += `<li class="">
+	//点击函数购物
+	gouwuhan()
+
+	$(".head_letf_diqu").mouseover(function() {
+		$(".head_div").css("display", "block")
+	})
+	$(".head_letf_diqu").mouseout(function() {
+		$(".head_div").css("display", "none")
+	})
+	$(".head_div>span").click(function(e) {
+		if(e.target.innerHTML == 1) {
+			$(this).css("background", "#fff").next().css("background", "#f6f6f6")
+			$(".head_letf_diqu_z_ul").css({
+					"display": "block"
+				})
+				.next().css({
+					"display": "none"
+				})
+		}
+		if(e.target.innerHTML == 2) {
+			$(this).css("background", "#fff").prev().css("background", "#f6f6f6")
+			$(".head_letf_diqu_z_ula").css({
+					"display": "block"
+				})
+				.prev().css({
+					"display": "none"
+				})
+		}
+	})
+
+	$(".headul a").click(function() {
+		$(".head_letf_diqu_z>span").text(this.innerHTML)
+		$(".head_div").css("display", "none")
+	})
+
+	var liebiaoId = [];
+	//搜索接口https://www.epet.com/share/suggest.html?inajax=1&kw=%E7%8B%97&pet_type=dog
+	//不管用  用的淘宝的
+	var promise1 = $.getJSON("http://h6.duchengjiu.top/shop/api_cat.php", function(date) {
+		var shuju = date.data;
+		//			console.log(shuju)
+
+		var str = "";
+		var ul = ""
+		for(var i = 0; i < shuju.length; i += 2) {
+			liebiaoId.push(shuju[i].cat_id, shuju[i + 1].cat_id)
+			//					liebiaoId[i] = shuju[i].cat_id;
+			//					liebiaoId[i+1] = shuju[i+1].cat_id;
+			str += `<li class="">
 				<h3>
 				<a href="https://list.epet.com/4356.html" lang="4356">${shuju[i].cat_name}<i>${Math.floor(Math.random()*1900+100)}</i></a> 
 				<a href="https://list.epet.com/4334.html" lang="4334">${shuju[i+1].cat_name}<i>${Math.floor(Math.random()*1900+100)}</i></a> 
 				</h3>
 				</li>`
 
-				}
-				$("#fenleilist")[0].innerHTML += str;
-				
-			})
-		
-	
+		}
+		$("#fenleilist")[0].innerHTML += str;
 
-			
+	})
 
-			var promise2 = promise1.then(function(data) {
+	var promise2 = promise1.then(function(data) {
 		var ulaaa = $("#fenleilist h3");
 
-	for(var i=0;i<ulaaa.length;i++){
-		$(ulaaa[i]).after(`		<ul id="ulaaa" style="display: none;">
+		for(var i = 0; i < ulaaa.length; i++) {
+			$(ulaaa[i]).after(`		<ul id="ulaaa" style="display: none;">
 		<li><a href="javascript:;"><span style="float: left;">${i}</span><img alt="4357" src="http://imgs-qn.iliangcang.com/ware/goods/big/2/249/249846.jpg"></a>动物系列
 			豹纹 卫衣裙</li>
 		<li><a href="javascript:;"><span style="float: left;">${i}</span><img alt="4357" src="http://imgs-qn.iliangcang.com/ware/goods/big/2/249/249839.jpg"></a>动物系列
@@ -84,17 +268,15 @@ $(function(){
 			橙子</li>
 	</ul>`)
 
-	}
-})
-			
-			
-				
-		$.getJSON("js/shangpin.json",function(deta1){
-			for(var i in deta1){
-				
-				if(deta1[i].data==id){
-					
-					var str = `
+		}
+	})
+
+	$.getJSON("js/shangpin.json", function(deta1) {
+		for(var i in deta1) {
+
+			if(deta1[i].data == id) {
+
+				var str = `
 					<div class="fzuo">
 				<div class="fzou_n">
 					<img src="${deta1[i].img}" />
@@ -156,67 +338,41 @@ $(function(){
 					<span class="wyaojiesuana">我要买：</span>
 					<div class="norms-con fl">
 						<span class="cgnum fl mr">
-                    <span class="chgnum lim-buynum ft14">-</span>
+                    <span class="chgnum lim-buynum ft14 jjbtn">-</span>
 						<input type="text" id="cart_buynum" class="text buynum" value="1" size="2">
-						<span class="chgnum add-buynum ft14">+</span>
+						<span class="chgnum add-buynum ft14 jjbtn">+</span>
 						</span>
 						<span class="fla">盒</span>
 					</div>
 				</div>
-				<a class="db epet_sensor_add_cart"><span class="cfff">加入购物车</span></a>
+				<a data-id="${deta1[i].data}" class="db epet_sensor_add_cart"><span class="cfff">加入购物车</span></a>
 			</div>
 		</div>`;
-					
-					
-			$(".fangdajing").html(str)	
-			$("#imgdetail_bao").html(deta1[i].show)
-					
-				}
-			
-			
+
+				$(".fangdajing").html(str)
+				$("#imgdetail_bao").html(deta1[i].show)
+
 			}
-			var shangp =$(".fzou_n");
-	$(".oborder>li").mouseenter(function(){
-//		shangp.children("img").removeAttr("src")
-//		.attr("src",$(this).find("img").attr("src"))
-	magnifier(".fzou_n",320,320,$(this).find("img").attr("src"),200,200,400)
-	})
-		
-		
-			
-			
+
+		}
+		//放大镜
+		gouwuhan()
+		var shangp = $(".fzou_n");
+		$(".oborder>li").mouseenter(function() {
+			//		shangp.children("img").removeAttr("src")
+			//		.attr("src",$(this).find("img").attr("src"))
+			magnifier(".fzou_n", 320, 320, $(this).find("img").attr("src"), 200, 200, 400)
+
 		})
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		
-		
-			
-			
+
+		//添加购物车
+
+	})
+
+	if(userid != undefined) {
+		var userid = userid;
+
+		$("#userm").css("color", "red").text(userid);
+	}
+
 })

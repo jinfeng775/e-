@@ -216,6 +216,7 @@ $("#shouji").change(function(){
 						},
 						success:function(ee){
 							alert("注册成功")
+							location.href = "denglu.html"
 							}
 					})
 							}

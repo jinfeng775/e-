@@ -8,6 +8,61 @@
   .nav_nav_biaoti span:last-child:hover #fenleilist {
     display: block; }
 
+.close {
+    position: absolute;
+    top: 21px;
+    right: 20px;
+    cursor:pointer;
+}
+
+#mask-kk{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: #666;
+    opacity: 0.5;
+    filter: alpha(opacity=50)-moz-opacity: 0.5;
+    display: none;
+}
+.popup-kk{
+	text-align: center;
+    position: absolute;
+    left: 50%;
+    width: 500px;
+    height: 200px;
+    background: #fff;
+    z-index: 1000;
+    display: none;
+    border-radius:5px;
+}
+.popup-kk-wenzi{
+	text-align: center;
+	margin-top: 50px;
+	border: 1px #ddd solid;
+	height: 50px;
+	line-height: 50px;
+	font-size: 20px;
+	font-weight: 900px;
+}
+.btn1{
+	
+
+ margin: 40px 10px;
+  overflow: hidden;
+  width: 100px;
+  display: inline-block;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 3px;
+  background: #78b300;
+  cursor: pointer; 
+  color: #fff;
+}
+
 #gougou {
   display: none; }
 
@@ -73,7 +128,7 @@
   position: absolute;
   top: 0px; }
 
-.picroll p i {
+.picroll .back i {
   border-style: solid solid solid dotted;
   border-color: transparent #d7d7d7 transparent transparent;
   border-width: 8px;
@@ -82,7 +137,16 @@
   position: absolute;
   left: -5px;
   bottom: 28px; }
-
+.picroll .next i{
+	 border-width: 8px;
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  left: 5px;
+  bottom: 28px; 
+	 border-style: solid solid solid dotted;
+	border-color: transparent  transparent  transparent #d7d7d7;
+}
 .oborder {
   overflow: hidden; }
   .oborder li {

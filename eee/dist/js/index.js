@@ -1,4 +1,23 @@
 $(function() {
+	
+	
+		
+		var userid = location.search;
+				
+		userid = userid.split("?&zhanghao=")[1]
+	if(userid!=undefined){
+		userid= "用户:"+userid;
+		$("#userm").css("color","red").text(userid);
+	}
+	
+	
+	
+	
+	
+	
+		
+	
+	
 			//头部地区
 			$(".head_letf_diqu").mouseover(function() {
 				$(".head_div").css("display", "block")
@@ -251,7 +270,7 @@ $(function() {
 						for(var k=0;k<6;k++){
 							var rj = Math.floor(Math.random() * 6)
 							
-							moban+=`<a data-id="${deta1[rj].data}" href="xiangqing.html?${deta1[rj].data}"><li><div class="bo1a"></div>
+							moban+=`<a data-id="${deta1[rj].data}" href="xiangqing.html?data-id=${deta1[rj].data}&userid=${userid}"><li><div class="bo1a"></div>
 					 				<div class="bo1b"></div>	
 					 				<div class="bo1c">
 					 					<img id="imggg" src="${deta1[rj].img}"/>
