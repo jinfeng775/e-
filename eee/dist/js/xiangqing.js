@@ -41,27 +41,31 @@ $(function() {
 		})
 
 		$(".epet_sensor_add_cart").click(function() {
-
+	
 			//			console.log($(this).attr("data-id"))	
-		var shuzu =[];
+		
 			$.ajax({
 				type: "post",
 				url: "php/showList.php",
 				success: function(deta) {
 					var tag = true;
 					var deta = JSON.parse(deta)
-					//	console.log(deta)
+					console.log(deta)
 					
 					
 										
 					for(var i in deta) {
 						
 //						console.log("我是第一层循环我走了",1)
+							
 						if(deta[i].zhanghu == userid) {
-							
+							console.log(2)
 							var shuliang = 0;
-							
-							if(deta[i].spid) {
+							console.log(deta[i].zhanghu)
+							console.log(isNaN(deta[i].spid))
+							if(isNaN(deta[i].spid)) {
+								var shuzu =[];
+								console.log(deta[i].spid)
 								var detaa = JSON.parse(deta[i].spid)
 
 							
@@ -72,7 +76,7 @@ $(function() {
 										if(k == $(".epet_sensor_add_cart").attr("data-id")) {
 //											console.log(detaa[m][k])
 											tag = false;
-											detaa[zz][k] += parseInt(inputvul)
+											detaa[zz][k] = parseInt(detaa[zz][k])+parseInt(inputvul)
 
 											detaa = JSON.stringify(detaa)
 
@@ -90,8 +94,7 @@ $(function() {
 											})
 											break ;
 										}else{
-											iddd =""
-										iddd=$(".epet_sensor_add_cart").attr("data-id")
+											
 											
 											
 											
@@ -106,12 +109,16 @@ $(function() {
 										
 								}
 								if(tag){
-								obj ={}
-								obj[iddd] = inputvul
+									var shuzu =[];
+								var	iddd =""
+										iddd=$(".epet_sensor_add_cart").attr("data-id")
+								var obj ={}
+							 
+							 obj[iddd] = inputvul
 									shuzu.push(obj)
-									var c = shuzu.concat(detaa)
 									
-									c = JSON.stringify(c)
+									
+									c = JSON.stringify(shuzu)
 									//新数据重新添加
 									$.ajax({
 												type: "post",
@@ -133,10 +140,34 @@ $(function() {
 									
 									
 											
-							} 
+							}
+							if(!isNaN(deta[i].spid)){
+								var shuzu =[];
+								var	iddd =""
+										iddd=$(".epet_sensor_add_cart").attr("data-id")
+							var 	obj ={}
+							 obj[iddd] = inputvul
+									shuzu.push(obj)
+									var c = shuzu.concat(detaa)
+									
+									c = JSON.stringify(c)
+									//新数据重新添加
+									$.ajax({
+												type: "post",
+												url: "php/xiugai.php",
+												data: {
+													zhanghu: userid,
+													mima: "",
+													spid: c
+												},
+												success: function(deta) {
+													
+												}
+											})
+								
+							}
+							
 
-						}else{
-							alert("请先登录");
 						}
 
 					}
@@ -182,7 +213,7 @@ $(function() {
 			overflow: ""
 		});
 	});
-	$('.btn1a').click(function() {
+	$('.btn1aa').click(function() {
 		$('#mask-kk,.popup-kk').css('display', 'none');
 		$("body").css({
 			overflow: ""
@@ -371,7 +402,8 @@ $(function() {
 
 	if(userid != undefined) {
 		var userid = userid;
-
+		$("#gouwuccc").attr("href","gouwuce.html?&user="+userid)
+		$(".btn1aa").attr("href","gouwuce.html?&user="+userid)
 		$("#userm").css("color", "red").text(userid);
 	}
 

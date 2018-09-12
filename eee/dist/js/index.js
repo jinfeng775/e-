@@ -6,11 +6,18 @@ $(function() {
 				
 		userid = userid.split("?&zhanghao=")[1]
 	if(userid!=undefined){
+		
+		$("#gouwuccc").attr("href","gouwuce.html?&user="+userid)
+		$(".rt-cart").attr("href","gouwuce.html?&user="+userid)
+		$("#gouwuce1").attr("href","gouwuce.html?&user="+userid)
+		$("#gouwuce").attr("href","gouwuce.html?&user="+userid)
 		userid= "用户:"+userid;
 		$("#userm").css("color","red").text(userid);
+		
+	
 	}
 	
-	
+
 	
 	
 	
