@@ -62,18 +62,22 @@ $(function() {
 							console.log(2)
 							var shuliang = 0;
 							console.log(deta[i].zhanghu)
-							console.log(isNaN(deta[i].spid))
+							
 							if(isNaN(deta[i].spid)) {
+								
 								var shuzu =[];
-								console.log(deta[i].spid)
+//								console.log(deta[i].spid)
 								var detaa = JSON.parse(deta[i].spid)
 
 							
 								var changdu = detaa.length;
 								for(var zz = 0; zz < changdu; zz++) {									
 								var detaa = JSON.parse(deta[i].spid)									
-									for(var k in detaa[zz]) {											
+									for(var k in detaa[zz]) {
+									//	console.log(k,"k-----",$(".epet_sensor_add_cart").attr("data-id"))
+										
 										if(k == $(".epet_sensor_add_cart").attr("data-id")) {
+											
 //											console.log(detaa[m][k])
 											tag = false;
 											detaa[zz][k] = parseInt(detaa[zz][k])+parseInt(inputvul)
@@ -93,34 +97,28 @@ $(function() {
 												}
 											})
 											break ;
-										}else{
-											
-											
-											
-											
-											
-									
-										
-										break ;
 										}
 									}
 										
-										
+								
 										
 								}
 								if(tag){
+									
 									var shuzu =[];
 								var	iddd =""
-										iddd=$(".epet_sensor_add_cart").attr("data-id")
+									iddd=$(".epet_sensor_add_cart").attr("data-id")
 								var obj ={}
 							 
-							 obj[iddd] = inputvul
+							 obj[iddd] = inputvul;
 									shuzu.push(obj)
 									
-									
-									c = JSON.stringify(shuzu)
+									var c = shuzu.concat(detaa)
+								
+									c = JSON.stringify(c)
 									//新数据重新添加
-									$.ajax({
+									console.log(c)
+								$.ajax({
 												type: "post",
 												url: "php/xiugai.php",
 												data: {
@@ -131,12 +129,12 @@ $(function() {
 												success: function(deta) {
 													
 												}
-											})
+											})		
+									
 									
 									
 									
 								}
-									
 									
 									
 											
@@ -213,7 +211,7 @@ $(function() {
 			overflow: ""
 		});
 	});
-	$('.btn1aa').click(function() {
+	$('.btn1a').click(function() {
 		$('#mask-kk,.popup-kk').css('display', 'none');
 		$("body").css({
 			overflow: ""
