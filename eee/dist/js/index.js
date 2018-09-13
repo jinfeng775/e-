@@ -5,21 +5,15 @@ $(function() {
 		var userid = location.search;
 				
 		userid = userid.split("?&zhanghao=")[1]
-	if(userid!=undefined){
-		
-		$("#gouwuccc").attr("href","gouwuce.html?&user="+userid)
-		$(".rt-cart").attr("href","gouwuce.html?&user="+userid)
-		$("#gouwuce1").attr("href","gouwuce.html?&user="+userid)
-		$("#gouwuce").attr("href","gouwuce.html?&user="+userid)
-		userid= "用户:"+userid;
-		$("#userm").css("color","red").text(userid);
-		
-	
-	}
-	
-
 	
 	
+				console.log(userid)
+	
+	
+	$("#huitop").click(function(){
+	var sped = 50;
+	$("body,html").animate({scrollTop:0},sped)
+	})
 	
 	
 		
@@ -191,7 +185,7 @@ $(function() {
 					
 					con1++;
 				},2000)
-				
+
 				
 				$(".nav_nav_biaoti>span").css("background","#fff").eq(0).css("background",lunbotu_se[con])
 				//轮播图菜单栏切换
@@ -222,6 +216,7 @@ $(function() {
 					}
 				})
 				
+							
 				
 			//请求数据	
 			$.ajax({
@@ -267,13 +262,15 @@ $(function() {
 							
 							}
 							});
+
 				$.getJSON("js/shangpin.json",function(deta1){
 					for(var i=0;i<8;i++){
 						var monis = '<ul class="bo1 ee'+i+'" style="left: 0px;display: none;">';
 							var monie = "</ul>";
 							var moban ="";
 							var ruiji = getRandomArray()
-							
+						
+	
 						for(var k=0;k<6;k++){
 							var rj = Math.floor(Math.random() * 6)
 							
@@ -391,7 +388,17 @@ $(function() {
 //	
 			
 			
-			
+			if(userid!=undefined){
+		
+		$("#gouwuccc").attr("href","gouwuce.html?&user="+userid)
+		$(".rt-cart").attr("href","gouwuce.html?&user="+userid)
+		$("#gouwuce1").attr("href","gouwuce.html?&user="+userid)
+		$("#gouwuce").attr("href","gouwuce.html?&user="+userid)
+		userid= "用户:"+userid;
+		$("#userm").css("color","red").text(userid);
+		
+	
+	}
 			
 			
 			

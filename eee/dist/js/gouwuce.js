@@ -17,8 +17,12 @@ $(function() {
 
 				for(var i = 0; i < deta.length; i++) {
 					if(userid == deta[i].zhanghu) {
-							console.log(deta)
-						var ku = JSON.parse(deta[i].spid)
+							console.log(deta[i].spid);
+							if(isNaN(deta[i].spid)){
+								
+							var ku = JSON.parse(deta[i].spid)
+							
+						
 						for(var k = 0; k < ku.length; k++) {
 							for(var b in ku[k]) {
 
@@ -65,7 +69,9 @@ $(function() {
 
 							}
 						}
-
+					}else{
+						alert("购物车空空如也")
+					}
 					} else {
 						//						alert(请登录)
 					}
@@ -174,16 +180,20 @@ $(function() {
 		})
 
 	})
-	
-	
-	
+	//点击事件
+	$("#huitop").click(function(){
+	var sped = 50;
+	$("body,html").animate({scrollTop:0},sped)
+	})
 	
 	
 	
 	if(userid!=undefined){
+		$("#shouyelogo").attr("href","index.html?&zhanghao="+userid)
+		console.log($("#shouyelogo"))
+		$(".nologin-order").text("用户："+userid)
 		
-		
-	$("#gouwuccc").attr("href","gouwuce.html?&user="+userid)
+	$("#gouwuccc").attr("href","index.html?&zhanghao="+userid)
 		$("#userm").css("color","red").text(userid);
 		
 	

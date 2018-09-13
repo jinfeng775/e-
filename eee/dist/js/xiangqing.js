@@ -36,7 +36,7 @@ $(function() {
 		})
 
 		$("#cart_buynum").keyup(function() {
-			console.log($("#cart_buynum").val())
+			
 			inputvul = $("#cart_buynum").val();
 		})
 
@@ -399,11 +399,13 @@ $(function() {
 		//添加购物车
 
 	})
-
+	
 	if(userid != undefined) {
 		var userid = userid;
-		$("#gouwuccc").attr("href","gouwuce.html?&user="+userid)
+		
+		$("#gouwuccc").attr("href","index.html?&zhanghao="+userid)
 		$(".btn1aa").attr("href","gouwuce.html?&user="+userid)
+		$("#gouwuccca").attr("href","gouwuce.html?&user="+userid)
 		$("#userm").css("color", "red").text(userid);
 	}
 
